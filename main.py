@@ -1,6 +1,7 @@
 from mask_layout import MaskWidget
 from 浙江日报 import zjrb
 from 人民日报 import rmrb
+from 绍兴日报 import sxrb
 import datetime
 import sys
 
@@ -132,6 +133,7 @@ class ExportWorker(QThread):
             file = '新闻{0}.xlsx'.format(today)
             zjrb(self.start_dt, self.end_dt, self.keywords)
             rmrb(self.start_dt, self.end_dt, self.keywords)
+            sxrb(self.start_dt, self.end_dt, self.keywords)
             self.sig_complete.emit('抓取完成，生成文件《{0}》'.format(file))
         except Exception as e:
             print(e)
